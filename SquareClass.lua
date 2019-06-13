@@ -9,6 +9,6 @@ function SquareClass:new( o ,lenth)
 	return o
 end
 
-function SquareClass:printA(  )
+function SquareClass:PrintArea(  )
 	print("面积为:",self.area)
 end

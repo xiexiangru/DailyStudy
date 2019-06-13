@@ -1,19 +1,21 @@
 require"SquareClass"
 
 
-mysquare=SquareClass:new(nil,10)
-mysquare.printA(mysquare)
+MySquare=SquareClass:new(nil, 10)
+print(MySquare.area)
+print(MySquare.lenth)
+MySquare.PrintArea(MySquare)
 
 
 
 --switch
-function case_1( ... )
+function Case_1( )
 	print("case 1")
 end
 
-function switch(case)
+function MySwitch(case)
 	if case == 1 then 
-		case_1()
+		Case_1()
 	elseif case == 2 then
 		print("case 2")
 	else
@@ -21,4 +23,4 @@ function switch(case)
 	end
 end
 
-switch(1)
+MySwitch(1)
