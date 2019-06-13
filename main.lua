@@ -1,11 +1,11 @@
-require"SquareClass"
+require"square_class"
 
 
 MySquare=SquareClass:new(nil, 10)
 print(MySquare.area)
 print(MySquare.lenth)
 MySquare.PrintArea(MySquare)
-
+MySquare.PrintPrimeter(MySquare)
 
 
 --switch
