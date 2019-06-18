@@ -5,7 +5,7 @@ function PrintDir(rootPath)
         if entry~='.' and entry~='..' then 
             local path = rootPath.."\\"..entry
             local attr = lfs.attributes(path)
-            if(attr.mode == "directory") then
+            if attr.mode == "directory" then
                 print("Dir:",path)
             elseif attr.mode=="file" then
                 print("File:",path)
