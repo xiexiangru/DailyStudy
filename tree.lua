@@ -1,33 +1,37 @@
-createTree = function(dep)
+myTree = {}
+
+myTree.createTree = function(self, dep)
     local root = {lchild = nil, rchild = nil, parent = nil, data = 1, dep = 1}
-    root.lchild = addNode(root, 0, dep)    
-    root.rchild = addNode(root, 1, dep)    
+    root.lchild = self:addNode(root, 0, dep)    
+    root.rchild = self:addNode(root, 1, dep)    
     return root
 end
 
-addNode = function(node, position, dep)
+myTree.addNode = function(self, node, position, dep)
+    --print(node)
     if node.dep >= dep then
         return
     end 
-
     local new_node= {lchild = nil, rchild = nil, parent = node, data = 0, dep = node.dep + 1}
     new_node.data = (position == 0 and node.data * 2 or node.data * 2 + 1)
-    new_node.lchild = addNode(new_node, 0, dep)
-    new_node.rchild = addNode(new_node, 1, dep)
+    new_node.lchild = self:addNode(new_node, 0, dep)
+    new_node.rchild = self:addNode(new_node, 1, dep)
 
     return new_node
 end
 
-printTree = function(node)
+myTree.printTree = function(self, node)
+    --print(node)
     print(node.data)
     if node.lchild then
-        printTree(node.lchild)  
+        self.printTree(self, node.lchild)  
     end 
     if node.rchild then
-        printTree(node.rchild)  
+        self.printTree(self, node.rchild)  
     end 
 end
 
-local tree = createTree(3)
-printTree(tree)
+return myTree
+--local tree = createTree(3)
+--printTree(tree)
 

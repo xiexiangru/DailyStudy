@@ -1,19 +1,22 @@
-node = {}
-list = node
+myList = {}
+myList.node = {}
+myList.list = myList.node
 
-init = function()
-    list.next = nil
+myList.init = function(self)
+    self.list.next = nil
+    --print(self.list)
 end
 
-addNode = function(d)
-    node.next = {}
-    node = node.next
-    node.next = nil
-    node.data = d
+
+myList.addNode = function(self, d)
+    self.node.next = {}
+    self.node = self.node.next
+    self.node.next = nil
+    self.node.data = d
 end
 
-delNode = function(i)
-    local j, k ,l = i - 1, 0, list
+myList.delNode = function(self,i)
+    local j, k ,l = i - 1, 0, self.list
     while k < j do
         k = k + 1
         l = l.next
@@ -25,8 +28,16 @@ delNode = function(i)
     return d
 end
 
-changeNode = function(i, d)
-	local l = list.next 
+myList.printList = function(self)
+    local l = self.list.next
+    while l do
+        print(l.data)
+        l = l.next
+    end
+
+end
+myList.changeNode = function(self, i, d)
+	local l = self.list.next 
     local k = 1
     while l do
         l = l.next
@@ -37,8 +48,8 @@ changeNode = function(i, d)
     end
 end
 
-getNode = function(i)
-    local l = list.next 
+myList.getNode = function(self, i)
+    local l = self.list.next 
     local k = 1
     while l do
         l = l.next
@@ -49,15 +60,8 @@ getNode = function(i)
     end
 end
 
-printList = function()
-	local l = list.next
-	while l do
-		print(l.data)
-		l = l.next
-	end
-end
-
-init()
+return myList
+--[[init()
 
 addNode(8)
 addNode(45)
@@ -78,4 +82,4 @@ print("-----")
 changeNode(5, 20)
 
 print("-----")
-printList()
+printList()--]]

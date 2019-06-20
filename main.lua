@@ -1,26 +1,35 @@
-require"square_class"
+
+local myList = require "list"
+--tree = myTree:createTree(4)
+--print(myList)
+
+myList:init()
 
 
-MySquare=SquareClass:new(nil, 10)
-print(MySquare.area)
-print(MySquare.lenth)
-MySquare.PrintArea(MySquare)
-MySquare.PrintPrimeter(MySquare)
+myList:addNode(8)
+myList:addNode(45)
 
-
---switch
-function Case_1( )
-	print("case 1")
+myList:addNode(12)
+for i = 1,5 do
+	myList:addNode(i)
 end
+myList:printList()
+print("-----")
 
-function MySwitch(case)
-	if case == 1 then 
-		Case_1()
-	elseif case == 2 then
-		print("case 2")
-	else
-		print("default")
-	end
-end
+myList:delNode(2)
+myList:printList()
+print("-----")
 
-MySwitch(1)
+print(myList:getNode(3))
+print("-----")
+
+myList:changeNode(5, 20)
+
+print("-----")
+myList:printList()
+
+print("----------------------")
+local myTree = require "tree"
+
+local tree = myTree:createTree(3)
+myTree:printTree(tree)
